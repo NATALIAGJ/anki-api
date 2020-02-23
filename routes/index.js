@@ -1,4 +1,5 @@
 const express = require('express')
+const ThemesRoutes = require('./themes.routes')
 
 const app = express.Router()
 
@@ -10,5 +11,6 @@ app.get('/', (req, res) => {
 })
 
 /* Rutas */
+app.use('/themes', ThemesRoutes)
 
 module.exports = app

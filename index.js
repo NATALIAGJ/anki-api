@@ -9,7 +9,6 @@ const routes = require('./routes/index')
 const { JW_TOKEN } = require('./utils')
 
 const jwToken = JW_TOKEN[process.env.NODE_ENV || 'development']
-console.log(jwToken.authJwtSecret);
 
 const secretOrKey = jwToken.authJwtSecret
 
