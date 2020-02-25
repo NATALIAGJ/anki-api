@@ -34,7 +34,7 @@ exports.getTheme = async function (req, res, next) {
 exports.createTheme = async function (req, res, next) {
   try {
     const { body: theme } = req
-    theme.id = uuidBase62()
+    theme.id = uuidBase62.v4()
     const createTheme = await themeService.createTheme({ theme })
     res.status(200).json({
       data: createTheme,
@@ -45,15 +45,13 @@ exports.createTheme = async function (req, res, next) {
   }
 }
 
-
 exports.updateTheme = async function (req, res, next) {
   try {
     const { themeId } = req.params
     const { body: theme } = req
-    const updateTheme = await themeService.updateTheme({ themeId, theme })
+    await themeService.updateTheme({ themeId, theme })
     res.status(200).json({
-      data: updateTheme,
-      message: 'themes actualizado'
+      message: 'theme actualizado'
     })
   } catch (error) {
     logErrors(error, next)
@@ -63,9 +61,8 @@ exports.updateTheme = async function (req, res, next) {
 exports.deleteTheme = async function (req, res, next) {
   try {
     const { themeId } = req.params
-    const theme = await themeService.deleteTheme({ themeId })
+    await themeService.deleteTheme({ themeId })
     res.status(200).json({
-      data: theme,
       message: 'theme eliminado'
     })
   } catch (error) {

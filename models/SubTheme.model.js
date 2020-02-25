@@ -8,7 +8,7 @@ const SubThemeSchema = mongoose.Schema(
       unique: true
     },
     /* -- Schema Here -- */
-    subTheme: {
+    subtheme: {
       type: String,
       default: ''
     },
@@ -27,6 +27,6 @@ const SubThemeSchema = mongoose.Schema(
   }
 )
 
-const SubThemeModel = mongoose.model('subThemes', SubThemeSchema, 'subThemes')
+const SubThemeModel = mongoose.model('subthemes', SubThemeSchema, 'subthemes')
 
 module.exports = SubThemeModel

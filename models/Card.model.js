@@ -17,7 +17,7 @@ const CardSchema = mongoose.Schema(
       default: ''
     },
     /* -- Relations Here -- */
-    subTheme: { 
+    subtheme: { 
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'subThemes', 
       index: true 

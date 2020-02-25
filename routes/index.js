@@ -1,5 +1,7 @@
 const express = require('express')
 const ThemesRoutes = require('./themes.routes')
+const SubThemesRoutes = require('./subthemes.routes')
+const CardsRoutes = require('./cards.routes')
 
 const app = express.Router()
 
@@ -12,5 +14,7 @@ app.get('/', (req, res) => {
 
 /* Rutas */
 app.use('/themes', ThemesRoutes)
+app.use('/subthemes', SubThemesRoutes)
+app.use('/cards', CardsRoutes)
 
 module.exports = app

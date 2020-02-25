@@ -34,7 +34,7 @@ exports.getSubTheme = async function (req, res, next) {
 exports.createSubTheme = async function (req, res, next) {
   try {
     const { body: subTheme } = req
-    subTheme.id = uuidBase62()
+    subTheme.id = uuidBase62.v4()
     const createSubTheme = await subThemeService.createSubTheme({ subTheme })
     res.status(200).json({
       data: createSubTheme,
@@ -50,9 +50,8 @@ exports.updateSubTheme = async function (req, res, next) {
   try {
     const { subThemeId } = req.params
     const { body: subTheme } = req
-    const updateSubTheme = await subThemeService.updateSubTheme({ subThemeId, subTheme })
+    await subThemeService.updateSubTheme({ subThemeId, subTheme })
     res.status(200).json({
-      data: updateSubTheme,
       message: 'subThemes actualizado'
     })
   } catch (error) {
@@ -63,9 +62,8 @@ exports.updateSubTheme = async function (req, res, next) {
 exports.deleteSubTheme = async function (req, res, next) {
   try {
     const { subThemeId } = req.params
-    const subTheme = await subThemeService.deleteSubTheme({ subThemeId })
+    await subThemeService.deleteSubTheme({ subThemeId })
     res.status(200).json({
-      data: subTheme,
       message: 'subTheme eliminado'
     })
   } catch (error) {
