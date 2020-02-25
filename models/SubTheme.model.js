@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ThemeSchema = mongoose.Schema(
+const SubThemeSchema = mongoose.Schema(
   {
     id: {
       type: String,
@@ -8,11 +8,16 @@ const ThemeSchema = mongoose.Schema(
       unique: true
     },
     /* -- Schema Here -- */
-    theme: {
+    subTheme: {
       type: String,
       default: ''
-    }
+    },
     /* -- Relations Here -- */
+    theme: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'themes', 
+      index: true 
+    },
   },
   {
     timestamps: {
@@ -22,6 +27,6 @@ const ThemeSchema = mongoose.Schema(
   }
 )
 
-const ThemeModel = mongoose.model('themes', ThemeSchema, 'themes')
+const SubThemeModel = mongoose.model('subThemes', SubThemeSchema, 'subThemes')
 
-module.exports = ThemeModel
+module.exports = SubThemeModel

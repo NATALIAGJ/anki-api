@@ -11,12 +11,12 @@ const {
 
 router.get('/', getThemes)
 
-router.get('/:themesId', getTheme)
+router.get('/:themeId', getTheme)
 
 router.post('/', createTheme)
 
-router.put('/:themesId', updateTheme)
+router.put('/:themeId', updateTheme)
 
-router.delete('/:themesId', deleteTheme)
+router.delete('/:themeId', deleteTheme)
 
 module.exports = router

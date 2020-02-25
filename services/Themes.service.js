@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongodb')
-const ThemeSchema = require('../schemas/ThemeSchema')
+const ThemeSchema = require('../models/Theme.model')
 
 class ThemesService {
   async getThemes ({ tags }) {
